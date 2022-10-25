@@ -49,17 +49,19 @@
         document.getElementById("b1").addEventListener("click", calFunc);
         function calFunc() {
             //grabbing input
-            st = document.getElementById("subtotal").value;
-            tr = document.getElementById("tax_rate").value;
+            bt = document.getElementById("billtotal").value;
+            rt = document.getElementById("tip").value;
             //changing string to float
-            var sub_total = parseFloat(st);
-            var tax_rate = parseFloat(tr)
-            
+            var s_total = parseFloat(bt);
+            var r_tip = parseFloat(rt)
+            //print tip in tip per text box
+
+
             //validation & calculation 
-            if (sub_total > 0 && tax_rate > 0 && tax_rate <= 20){
-                rate = tax_rate/100;
-                document.getElementById("sales_tax").value = rate * sub_total;
-                total = sub_total + (rate * sub_total)
+            if (s_total > 0 && r_tip >= 0){
+                cal_tip = s_total * r_tip;
+                document.getElementById("tip_amt").value = cal_tip;
+                //total = sub_total + (rate * sub_total)
                 document.getElementById("total").value = (total.toFixed(2));
             }
             else if(sub_total < 0){
