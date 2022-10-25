@@ -21,6 +21,9 @@
                 <label for="billtotal">Bill Total:</label>
                 <input type="text" id="billtotal" name="billtotal">
 
+                <label for="tip">Tip:</label>
+                <input type="range" id="tip" name="tip" min="0" max="100" value="0">
+
                 <label for="tip_per">Tip Percentage:</label>
                 <input type="text" id="tip_per" name="tip_per" disabled>
 
@@ -66,14 +69,6 @@
                 alert(" Tax rate is not within 0 and 20!")
             }
         }
-
-        // EVENT HANDLER FOR CLEAR
-        document.getElementById("b2").addEventListener("click", clearFunc);
-        function clearFunc() {
-                document.getElementById("myForm").reset();
-                document.getElementById("subtotal").focus();
-        }
-        
     </script>
         
 </body>

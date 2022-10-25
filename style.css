@@ -41,8 +41,18 @@ h3 {
 }
 label{
     display: inline-block;
+    text-align: left;
 }
 input[type=text]{
+    padding: 10px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid rgb(65, 65, 65);
+    width: 95%;
+    box-sizing: border-box;
+}
+
+input[type=range]{
     padding: 10px 15px;
     margin: 8px 0;
     display: inline-block;
