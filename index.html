@@ -22,7 +22,7 @@
                 <input type="text" id="billtotal" name="billtotal">
 
                 <label for="tip">Tip:</label>
-                <input type="range" id="tip" name="tip" min="0" max="100" value="0">
+                <input type="range" class="tip" name="tip" min="0" max="100" value="0">
 
                 <label for="tip_per">Tip Percentage:</label>
                 <input type="text" id="tip_per" name="tip_per" disabled>
@@ -38,38 +38,31 @@
     </div>
 
     <script>
-        function init(){
-            document.addEventListener('DOMContentLoaded', init);
-            document.getElementsByClassName("cal_box").addEventListener("load");
-            document.getElementById("b1").addEventListener("click", calFunc);
-            document.getElementById("b2").addEventListener("click", clearFunc);
-        }
-
         // EVENT HANDLER FOR CALCULATE
-        document.getElementById("b1").addEventListener("click", calFunc);
-        function calFunc() {
-            //grabbing input
-            bt = document.getElementById("billtotal").value;
-            rt = document.getElementById("tip").value;
-            //changing string to float
-            var s_total = parseFloat(bt);
-            var r_tip = parseFloat(rt)
-            //print tip in tip per text box
+        //grabbing input
+        bt = document.getElementById("billtotal").value;
+        rt = document.getElementsByClassName("tip").value;
+        //changing string to float
+        var s_total = parseFloat(bt);
+        var r_tip = parseFloat(rt)
+
+        //CHANGE FORM
+        const tip_bar = document.querySelector('.tip');
+        tip_bar.addEventListener('change', updateValue)
+        function updateValue(e){
+            r_tip.textContent = e.target.tip_per;
+        }
+        //print tip in tip per text box
 
 
-            //validation & calculation 
-            if (s_total > 0 && r_tip >= 0){
-                cal_tip = s_total * r_tip;
-                document.getElementById("tip_amt").value = cal_tip;
-                //total = sub_total + (rate * sub_total)
-                document.getElementById("total").value = (total.toFixed(2));
-            }
-            else if(sub_total < 0){
-                alert("Subtotal must be a positive number!")
-            }
-            else{
-                alert(" Tax rate is not within 0 and 20!")
-            }
+        //validation & calculation 
+        if (s_total > 0 && r_tip >= 0){
+            cal_tip = s_total * r_tip;
+            document.getElementById("tip_amt").value = cal_tip;
+            document.getElementById("f_total").value = (f_total.toFixed(2));
+        }
+        else{
+            alert("Try again! Try clicking enter.")
         }
     </script>
         
