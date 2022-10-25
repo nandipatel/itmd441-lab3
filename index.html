@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h3>ITMD 4/541 - Lab 3 - Nandi Patel</h3>
+            <h1>Tip Calculator</h1>
+        </div>
+    </header>
+
+    <div class="cal_box">
+        <div id="fields">
+            <form id="myForm">
+                <label for="billtotal">Bill Total:</label>
+                <input type="text" id="billtotal" name="billtotal">
+
+                <label for="tip_per">Tip Percentage:</label>
+                <input type="text" id="tip_per" name="tip_per" disabled>
+
+                <label for="Tip Amount">Tip Amount:</label>
+                <input type="text" id="tip_amt" name="tip_amt" disabled>
+
+                <label for="">Total Bill with Tip:</label>
+                <input type="text" id="f_total" name="f_total" disabled>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function init(){
+            document.addEventListener('DOMContentLoaded', init);
+            document.getElementsByClassName("cal_box").addEventListener("load");
+            document.getElementById("b1").addEventListener("click", calFunc);
+            document.getElementById("b2").addEventListener("click", clearFunc);
+        }
+
+        // EVENT HANDLER FOR CALCULATE
+        document.getElementById("b1").addEventListener("click", calFunc);
+        function calFunc() {
+            //grabbing input
+            st = document.getElementById("subtotal").value;
+            tr = document.getElementById("tax_rate").value;
+            //changing string to float
+            var sub_total = parseFloat(st);
+            var tax_rate = parseFloat(tr)
+            
+            //validation & calculation 
+            if (sub_total > 0 && tax_rate > 0 && tax_rate <= 20){
+                rate = tax_rate/100;
+                document.getElementById("sales_tax").value = rate * sub_total;
+                total = sub_total + (rate * sub_total)
+                document.getElementById("total").value = (total.toFixed(2));
+            }
+            else if(sub_total < 0){
+                alert("Subtotal must be a positive number!")
+            }
+            else{
+                alert(" Tax rate is not within 0 and 20!")
+            }
+        }
+
+        // EVENT HANDLER FOR CLEAR
+        document.getElementById("b2").addEventListener("click", clearFunc);
+        function clearFunc() {
+                document.getElementById("myForm").reset();
+                document.getElementById("subtotal").focus();
+        }
+        
+    </script>
+        
+</body>
+</html>
+
