@@ -51,9 +51,9 @@
         tip_bar.addEventListener('change', updateValue)
         function updateValue(e){
             r_tip.textContent = e.target.tip_per;
+            document.getElementById("tip_per").value = r_tip;
         }
         //print tip in tip per text box
-
 
         //validation & calculation 
         if (s_total > 0 && r_tip >= 0){
