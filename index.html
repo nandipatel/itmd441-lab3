@@ -40,15 +40,24 @@
     <script>
         // EVENT HANDLER FOR CALCULATE
         //grabbing input
-        bt = document.getElementById("billtotal").value;
-        rt = document.getElementsByClassName("tip").value;
-        //changing string to float
-        var s_total = parseFloat(bt);
-        var r_tip = parseFloat(rt)
+        const billtotal = document.getElementById("billtotal").value;
+        const tip = document.getElementsByClassName("tip").value;
 
-        //CHANGE FORM
+        input.addEventListener('change', update);
+
+        //changing string to float
+        var s_total = parseFloat(input);
+        var r_tip = parseFloat(out);
+
+        function update(x) {
+            tip.textContent = x.target.value;
+        }
+
+        
+
+        /*CHANGE FORM
         const tip_bar = document.querySelector('.tip');
-        tip_bar.addEventListener('change', updateValue)
+        tip_bar.addEventListener('r_tip', updateValue)
         function updateValue(e){
             r_tip.textContent = e.target.tip_per;
             document.getElementById("tip_per").value = r_tip;
@@ -64,6 +73,7 @@
         else{
             alert("Try again! Try clicking enter.")
         }
+        */
     </script>
         
 </body>
