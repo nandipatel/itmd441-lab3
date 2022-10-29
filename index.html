@@ -22,7 +22,7 @@
                 <input type="text" id="billtotal" name="billtotal">
 
                 <label for="tip">Tip:</label>
-                <input type="range" class="tip" name="tip" value="0" min="0" max="100">
+                <input type="range" class="value" id="tip" name="tip" value="0" min="0" max="100">
 
                 <label for="tip_per">Tip Percentage:</label>
                 <input type="text" id="tip_per" name="tip_per" disabled>
@@ -46,6 +46,7 @@
             //GRABBING INPUT
             billt = Number(document.getElementById("billtotal").value);
             var x = document.querySelector('input[type="range"]').value;
+            console.log(billt);
 
             // CALCULATION
             reward = x/100;
