@@ -45,6 +45,9 @@ label{
     display: inline-block;
     text-align: left;
 }
+ #billtotal{
+    color: black;
+}
 input[type=text]{
     padding: 10px 15px;
     margin: 8px 0;
@@ -54,7 +57,6 @@ input[type=text]{
     box-sizing: border-box;
     color: white;
 }
-
 input[type=range]{
     padding: 10px 15px;
     margin: 8px 0;
