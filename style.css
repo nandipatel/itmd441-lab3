@@ -1,11 +1,11 @@
 body {
-    background-color: #d3e1ee;
+    background-color: #29402f;
 }
 
 /* header css */
 header div {
     border: none;
-    background-color:#DCAE96;
+    background-color:#722620;
     margin: 25px 0;
     padding: 5px 15px;
 }
@@ -14,22 +14,23 @@ header {
     margin-left: auto;
     margin-right: auto;
     width: 95%;
+    color: white;
 }
 h1{
     font-size: 2.9em;
-    background-color: #DCAE96;
+    background-color: #722620;
     font-family: 'Courier New', Courier, monospace;
 }
 h3 {
     font-size: 1.5em;
-    background-color: #DCAE96;
+    background-color: #722620;
     font-family: 'Courier New', Courier, monospace;
 }
 
 
 /* 2nd box css */
 .cal_box {
-    background-color: #DCAE96;
+    background-color: #722620;
     border: none;
     padding: 20px 30px;
     margin-left: auto;
@@ -38,6 +39,7 @@ h3 {
     font-family: monospace;
     font-size: 1.35em;
     font-weight: bold;
+    color: white;
 }
 label{
     display: inline-block;
@@ -50,6 +52,7 @@ input[type=text]{
     border: 2px solid rgb(65, 65, 65);
     width: 95%;
     box-sizing: border-box;
+    color: white;
 }
 
 input[type=range]{
