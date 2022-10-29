@@ -40,13 +40,14 @@
     <script>
         // EVENT HANDLER FOR CALCULATE
         //grabbing input
-        document.querySelector('#myForm').onchange = calFunc();
+        document.querySelectorAll('#myForm').onchange = change();
 
-        function calFunc() {
+        function change() {
             //GRABBING INPUT
             billt = Number(document.getElementById("billtotal").value);
             var x = document.querySelector('input[type="range"]').value;
             console.log(billt);
+            console.log(x);
 
             // CALCULATION
             reward = x/100;
