@@ -40,40 +40,29 @@
     <script>
         // EVENT HANDLER FOR CALCULATE
         //grabbing input
-        const billtotal = document.getElementById("billtotal").value;
-        const tip = document.getElementsByClassName("tip").value;
+        document.getElementById("billtotal").addEventListener("mouseover", calFunc);
+        //function calFunc() {
+            //GRABBING INPUT
+            bt = document.getElementById("billtotal").value;
+            tp = document.getElementsByClassName("tip").value;
 
-        input.addEventListener('change', update);
+            //PARSING VALUE
+            var billt = parseFloat(bt);
+            var tipamt = parseFloat(tp);
 
-        //changing string to float
-        var s_total = parseFloat(input);
-        var r_tip = parseFloat(out);
-
-        function update(x) {
-            tip.textContent = x.target.value;
-        }
-
-        
-
-        /*CHANGE FORM
-        const tip_bar = document.querySelector('.tip');
-        tip_bar.addEventListener('r_tip', updateValue)
-        function updateValue(e){
-            r_tip.textContent = e.target.tip_per;
-            document.getElementById("tip_per").value = r_tip;
-        }
-        //print tip in tip per text box
-
-        //validation & calculation 
-        if (s_total > 0 && r_tip >= 0){
-            cal_tip = s_total * r_tip;
-            document.getElementById("tip_amt").value = cal_tip;
-            document.getElementById("f_total").value = (f_total.toFixed(2));
-        }
-        else{
-            alert("Try again! Try clicking enter.")
-        }
-        */
+            //VALIDATION & CALCULATION
+            if (billt > 0 && tipamt >= 0){
+                reward = tipamt/100;
+                document.getElementById("tip_per").value = tipamt + ("%");
+                tipf = reward * billt;
+                document.getElementById("tip_amt").value = tipf;
+                finaltotal = tipf + bill;
+                document.getElementById("f_total").value = (finaltotal.toFixed(2));
+            }
+            /*else{
+                alert("Try Again! Enter in numbers.")
+            }*/
+        //}
     </script>
         
 </body>
