@@ -22,7 +22,8 @@
                 <input type="text" id="billtotal" name="billtotal">
 
                 <label for="tip">Tip:</label>
-                <input type="range" class="tip" name="tip" min="0" max="100" value="0">
+                <input type="range" class="tip" id="tipin" name="tip" min="0" max="100" value="0">
+                <span class="tip_input" id="tipout"></span>
 
                 <label for="tip_per">Tip Percentage:</label>
                 <input type="text" id="tip_per" name="tip_per" disabled>
@@ -40,29 +41,23 @@
     <script>
         // EVENT HANDLER FOR CALCULATE
         //grabbing input
-        document.getElementById("billtotal").addEventListener("mouseover", calFunc);
-        //function calFunc() {
+        document.getElementById("myForm").onchange = function () {calFunc()};
+
+        function calFunc() {
             //GRABBING INPUT
-            bt = document.getElementById("billtotal").value;
-            tp = document.getElementsByClassName("tip").value;
+            billt = Number(document.getElementById("billtotal").value);
+            var tp = document.getElementsById('tipin').value;
 
-            //PARSING VALUE
-            var billt = parseFloat(bt);
-            var tipamt = parseFloat(tp);
+            document.getElementById('tipout').value= `${tp}`;
 
-            //VALIDATION & CALCULATION
-            if (billt > 0 && tipamt >= 0){
-                reward = tipamt/100;
-                document.getElementById("tip_per").value = tipamt + ("%");
-                tipf = reward * billt;
-                document.getElementById("tip_amt").value = tipf;
-                finaltotal = tipf + bill;
-                document.getElementById("f_total").value = (finaltotal.toFixed(2));
-            }
-            /*else{
-                alert("Try Again! Enter in numbers.")
-            }*/
-        //}
+            // CALCULATION
+            reward = tipout/100;
+            document.getElementById("tip_per").value = tipout + ("%");
+            tipval = reward * billt;
+            document.getElementById("tip_amt").value = tipval;
+            finaltotal = tipval + bill;
+            document.getElementById("f_total").value = (finaltotal.toFixed(2));
+        }
     </script>
         
 </body>
